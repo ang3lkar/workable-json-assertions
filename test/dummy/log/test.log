@@ -1,0 +1,25 @@
+-------------------------------------
+JsonControllerTest: test_view_assigns
+-------------------------------------
+------------------------------------------------
+JsonControllerTest: test_assert_timestamp_fields
+------------------------------------------------
+------------------------------------------------
+JsonControllerTest: test_assert_timestamp_fields
+------------------------------------------------
+------------------------------------------------
+JsonControllerTest: test_assert_timestamp_fields
+------------------------------------------------
+--------------------------------------------------------
+WorkableJsonAssertionsTest: test_assert_timestamp_fields
+--------------------------------------------------------
+--------------------------------------------------------
+WorkableJsonAssertionsTest: test_assert_timestamp_fields
+--------------------------------------------------------
+Processing by JsonController#timestamps as HTML
+Completed 200 OK in 0ms
+------------------------------------------------
+JsonControllerTest: test_assert_timestamp_fields
+------------------------------------------------
+Processing by JsonController#timestamps as HTML
+Completed 200 OK in 0ms
