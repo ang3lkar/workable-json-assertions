@@ -2,34 +2,6 @@ require 'active_support/core_ext/hash/indifferent_access'
 
 module WorkableJsonAssertions
   module Assertions
-    ISO_8601_PATTERN = /(\d\d\d\d)-?(\d\d)-?(\d\d)T?(\d\d):?(\d\d)(?::?(\d\d)(\.\d+)*?)?(Z|[+-])(?:(\d\d):?(\d\d))?/
-
-    def assert_isodate(str)
-      assert_match ISO_8601_PATTERN, str, "#{str} is not an ISO-8601 date"
-    end
-
-    def assert_timestamp_fields(obj, *fields)
-      if obj.is_a?(Array)
-        obj.each do |item|
-          assert_timestamp_fields(item, *fields)
-        end
-        return
-      end
-
-      hash = obj.with_indifferent_access
-
-      fields.each do |field|
-        assert_match ISO_8601_PATTERN, hash[field], "#{hash[field]} is not an ISO-8601 date"
-        assert_kind_of Integer, hash["#{field}_millis"]
-        refute_nil hash["#{field}_in_words"]
-      end
-    end
-
-    def assert_json_equal_except(json1, json2, blacklist = [])
-      json1 = recursive_except(json1, blacklist)
-      json2 = recursive_except(json2, blacklist)
-      assert_equal json1, json2
-    end
 
     def assert_json_response_empty
       assert_empty response.body.strip
@@ -46,6 +18,12 @@ module WorkableJsonAssertions
     end
 
     private
+
+    def assert_json_equal_except(json1, json2, blacklist = [])
+      json1 = recursive_except(json1, blacklist)
+      json2 = recursive_except(json2, blacklist)
+      assert_equal json1, json2
+    end
 
     def recursive_except(obj, blacklist)
       case obj

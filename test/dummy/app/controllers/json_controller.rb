@@ -1,16 +1,22 @@
 
-class JsonController < ActionController::Base  
-  def timestamps
+class JsonController < ActionController::Base
+
+  def empty_response
     head :ok
+  end
+
+  def dummy_response
+    render json: dummy_object
   end
 
   private
 
-  def get_timestamps_json
+  def dummy_object
     {
-      starts_at: '',
-      starts_at_millis: '',
-      starts_at_in_words: ''
+      one:    'John',
+      two:    'Paul',
+      three:  'George',
+      four:   'Ringo'
     }
   end
 end
