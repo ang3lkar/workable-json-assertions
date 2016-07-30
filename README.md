@@ -6,7 +6,9 @@ This gem adds basic JSON assertions to your controller tests.
 
 Add this line to your application's Gemfile:
 
-    gem 'workable_json_assertions'
+    group :test do
+      gem 'workable_json_assertions'
+    end
 
 And then execute:
 
