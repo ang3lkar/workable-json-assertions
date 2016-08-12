@@ -9,6 +9,10 @@ class JsonController < ActionController::Base
     render json: dummy_object
   end
 
+  def another_response
+    render json: nested_object
+  end
+
   private
 
   def dummy_object
@@ -17,6 +21,19 @@ class JsonController < ActionController::Base
       two:    'Paul',
       three:  'George',
       four:   'Ringo'
+    }
+  end
+
+  def nested_object
+    {
+      one: {
+        name: 'John',
+        instrument: 'Guitar'
+      },
+      two: {
+        name: 'Paul',
+        instrument: 'Bass'
+      }
     }
   end
 end

@@ -50,6 +50,17 @@ class BasicControllerTest < ActionController::TestCase
 end
 ```
 
+### assert\_json\_response\_includes
+```ruby
+class BasicControllerTest < ActionController::TestCase
+	def test_success
+		get :index # { 'key': 'value', 'created_at': '2016-07-25', 'updated_at': '2016-07-26' }
+		assert_json_response_includes({ key: 'value' })
+    assert_json_response_includes({ created_at: '2016-07-25' })
+	end
+end
+```
+
 ## Contributing
 
 1. Fork it

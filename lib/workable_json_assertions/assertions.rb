@@ -17,6 +17,10 @@ module WorkableJsonAssertions
       assert_json_equal_except(json, JSON.parse(response.body), blacklist)
     end
 
+    def assert_json_response_includes(hash)
+      assert_match hash.to_json, response.body
+    end
+
     private
 
     def assert_json_equal_except(json1, json2, blacklist = [])

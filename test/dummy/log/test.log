@@ -23,3 +23,25 @@ JsonControllerTest: test_assert_timestamp_fields
 ------------------------------------------------
 Processing by JsonController#timestamps as HTML
 Completed 200 OK in 0ms
+-----------------------------------------------
+JsonControllerTest: test_json_response_includes
+-----------------------------------------------
+Processing by JsonController#another_response as HTML
+Completed 200 OK in 0ms (Views: 0.3ms)
+---------------------------------------------------
+JsonControllerTest: test_json_response_equal_except
+---------------------------------------------------
+Processing by JsonController#dummy_response as HTML
+Completed 200 OK in 0ms (Views: 0.1ms)
+--------------------------------------------
+JsonControllerTest: test_json_response_equal
+--------------------------------------------
+Processing by JsonController#dummy_response as HTML
+Completed 200 OK in 0ms (Views: 0.2ms)
+--------------------------------------------
+JsonControllerTest: test_json_response_empty
+--------------------------------------------
+Processing by JsonController#empty_response as HTML
+Completed 200 OK in 0ms
+Processing by JsonController#dummy_response as HTML
+Completed 200 OK in 0ms (Views: 0.2ms)

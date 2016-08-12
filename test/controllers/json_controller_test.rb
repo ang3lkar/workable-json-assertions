@@ -28,6 +28,11 @@ class JsonControllerTest < ActionController::TestCase
     end
   end
 
+  def test_json_response_includes
+    process :another_response
+    assert_json_response_includes({ name: 'John', instrument: 'Guitar' })
+  end
+
   private
 
   def expected_response
