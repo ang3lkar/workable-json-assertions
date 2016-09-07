@@ -1,7 +1,3 @@
-require "rbconfig"
-require "tempfile"
-require "stringio"
-
 module Minitest
     ##
     # Returns a diff between +exp+ and +act+. If there is no known
