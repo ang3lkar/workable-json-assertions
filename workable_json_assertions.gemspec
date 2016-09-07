@@ -24,5 +24,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "actionpack", ">= 4.2"
   spec.add_dependency "actionview", ">= 4.2"
   spec.add_development_dependency "railties", "> 4.2"
-  spec.add_development_dependency "minitest"
+  spec.add_development_dependency "minitest", "> 5.0"
 end
