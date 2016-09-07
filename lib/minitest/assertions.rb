@@ -1,4 +1,5 @@
 module Minitest
+  module Assertions
     ##
     # Returns a diff between +exp+ and +act+. If there is no known
     # diff command or if it doesn't make sense to diff the output
