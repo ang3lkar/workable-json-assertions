@@ -46,4 +46,5 @@ Minitest::Assertions.module_eval do
 
     result
   end
+end
 
