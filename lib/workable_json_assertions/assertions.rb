@@ -3,22 +3,34 @@ require 'active_support/core_ext/hash/indifferent_access'
 module WorkableJsonAssertions
   module Assertions
 
+    def json_response_body(options = {symbolize_names: true})
+      JSON.parse(response.body.strip, options)
+    end
+
     def assert_json_response_empty
       assert_empty response.body.strip
     end
 
     def assert_json_response_equal(json)
       json = json.with_indifferent_access if json.is_a?(Hash)
-      assert_equal json, JSON.parse(response.body.strip)
+      assert_equal json, json_response_body
     end
 
     def assert_json_response_equal_except(json, blacklist = [])
       json = json.with_indifferent_access if json.is_a?(Hash)
-      assert_json_equal_except(json, JSON.parse(response.body), blacklist)
+      assert_json_equal_except(json, json_response_body, blacklist)
     end
 
     def assert_json_response_includes(hash)
-      assert_match hash.to_json, response.body
+      assert_match hash, json_response_body
+    end
+
+    def assert_json_response_has_key(key)
+      assert json_response_body.has_key?(key.to_sym)
+    end
+
+    def refute_json_response_has_key(key)
+      refute json_response_body.has_key?(key.to_sym)
     end
 
     private
