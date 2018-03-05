@@ -21,45 +21,45 @@ Or install it yourself as:
 ## Usage
 
 ### assert\_json\_response_empty
-```ruby
+~~~ ruby
 class BasicControllerTest < ActionController::TestCase
-	def test_success
-		get :index # {}
-		assert_json_response_empty
-	end
+  def test_success
+    get :index # {}
+    assert_json_response_empty
+  end
 end
-```
+~~~
 
 ### assert\_json\_response_equal
-```ruby
+~~~ ruby
 class BasicControllerTest < ActionController::TestCase
-	def test_success
-		get :index # { 'key': 'value' }
-		assert_json_response_equal { key: 'value' }
-	end
+  def test_success
+    get :index # { 'key': 'value' }
+    assert_json_response_equal { key: 'value' }
+  end
 end
-```
+~~~
 
 ### assert\_json\_response\_equal_except
-```ruby
+~~~ ruby
 class BasicControllerTest < ActionController::TestCase
-	def test_success
-		get :index # { 'key': 'value', 'created_at': '2016-07-25', 'updated_at': '2016-07-26' }
-		assert_json_response_equal_except { key: 'value' }, %i(created_at updated_at)
-	end
+  def test_success
+    get :index # { 'key': 'value', 'created_at': '2016-07-25', 'updated_at': '2016-07-26' }
+    assert_json_response_equal_except { key: 'value' }, %i(created_at updated_at)
+  end
 end
-```
+~~~
 
 ### assert\_json\_response\_includes
-```ruby
+~~~ ruby
 class BasicControllerTest < ActionController::TestCase
-	def test_success
-		get :index # { 'key': 'value', 'created_at': '2016-07-25', 'updated_at': '2016-07-26' }
-		assert_json_response_includes({ key: 'value' })
+  def test_success
+    get :index # { 'key': 'value', 'created_at': '2016-07-25', 'updated_at': '2016-07-26' }
+    assert_json_response_includes({ key: 'value' })
     assert_json_response_includes({ created_at: '2016-07-25' })
-	end
+  end
 end
-```
+~~~
 
 ## Contributing
 
